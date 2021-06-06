@@ -149,6 +149,73 @@
           }
         }
       }
+    },
+    "open-docs-electron": {
+      "root": "apps/open-docs-electron",
+      "sourceRoot": "apps/open-docs-electron/src",
+      "projectType": "application",
+      "prefix": "open-docs-electron",
+      "architect": {
+        "build": {
+          "builder": "nx-electron:build",
+          "options": {
+            "outputPath": "dist/apps/open-docs-electron",
+            "main": "apps/open-docs-electron/src/main.ts",
+            "tsConfig": "apps/open-docs-electron/tsconfig.app.json",
+            "assets": ["apps/open-docs-electron/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/open-docs-electron/src/environments/environment.ts",
+                  "with": "apps/open-docs-electron/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "nx-electron:execute",
+          "options": {
+            "buildTarget": "open-docs-electron:build"
+          }
+        },
+        "package": {
+          "builder": "nx-electron:package",
+          "options": {
+            "name": "open-docs-electron",
+            "frontendProject": "open-docs",
+            "outputPath": "dist/packages",
+            "prepackageOnly": true
+          }
+        },
+        "make": {
+          "builder": "nx-electron:make",
+          "options": {
+            "name": "open-docs-electron",
+            "frontendProject": "open-docs",
+            "outputPath": "dist/executables"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/open-docs-electron/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/open-docs-electron"],
+          "options": {
+            "jestConfig": "apps/open-docs-electron/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }
