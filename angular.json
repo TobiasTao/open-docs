@@ -47,10 +47,7 @@
             "polyfills": "apps/open-docs/src/polyfills.ts",
             "tsConfig": "apps/open-docs/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/open-docs/src/favicon.ico",
-              "apps/open-docs/src/assets"
-            ],
+            "assets": ["apps/open-docs/src/favicon.ico", "apps/open-docs/src/assets"],
             "styles": ["apps/open-docs/src/styles.scss"],
             "scripts": []
           },
@@ -108,10 +105,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/open-docs/src/**/*.ts",
-              "apps/open-docs/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/open-docs/src/**/*.ts", "apps/open-docs/src/**/*.html"]
           }
         },
         "test": {
@@ -216,6 +210,7 @@
           }
         }
       }
+
     }
   }
 }

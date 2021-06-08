@@ -1,19 +1,33 @@
 {
   "implicitDependencies": {
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     ".eslintrc.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "open-docs",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "open-docs": { "tags": [] },
-    "open-docs-e2e": { "tags": [], "implicitDependencies": ["open-docs"] },
-    "open-docs-electron": { "tags": [] }
+    "open-docs": {
+      "tags": []
+    },
+    "open-docs-e2e": {
+      "tags": [],
+      "implicitDependencies": ["open-docs"]
+    },
+    "open-docs-electron": {
+      "tags": []
+    }
   }
 }
