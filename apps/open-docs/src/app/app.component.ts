@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ElectronService } from './core/services/electron.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'open-docs-root',
@@ -11,9 +11,7 @@ export class AppComponent {
   title = 'open-docs';
   platform = '';
 
-  constructor(electronService: ElectronService) {
+  constructor(private electronService: ElectronService, private router: Router) {
     this.platform = electronService.platform;
-
   }
 }
-

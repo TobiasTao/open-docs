@@ -28,6 +28,15 @@
     },
     "open-docs-electron": {
       "tags": []
+    },
+    "web-shell-feature": {
+      "tags": []
+    },
+    "web-home-feature": {
+      "tags": []
+    },
+    "web-shell-ui-layout": {
+      "tags": []
     }
   }
 }
