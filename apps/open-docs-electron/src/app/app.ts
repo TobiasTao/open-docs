@@ -1,9 +1,10 @@
-import { BrowserWindow, shell, screen, app } from 'electron';
+import { BrowserWindow, screen, shell } from 'electron';
 import { ANGULAR_DEVTOOLS, rendererAppName, rendererAppPort } from './constants';
 import { environment } from '../environments/environment';
 import { join } from 'path';
 import { format, URL } from 'url';
 import installExtension from 'electron-devtools-installer';
+import * as OS from 'os';
 
 export default class App {
   // Keep a global reference of the window object, if you don't, the window will
@@ -14,8 +15,7 @@ export default class App {
 
   public static isDevelopmentMode() {
     const isEnvironmentSet: boolean = 'ELECTRON_IS_DEV' in process.env;
-    const getFromEnvironment: boolean =
-      parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
+    const getFromEnvironment: boolean = parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
 
     return isEnvironmentSet ? getFromEnvironment : !environment.production;
   }
@@ -60,19 +60,20 @@ export default class App {
 
   private static initMainWindow() {
     const workAreaSize = screen.getPrimaryDisplay().workAreaSize;
-    const width = Math.min(1280, workAreaSize.width || 1280);
-    const height = Math.min(720, workAreaSize.height || 720);
+    const width = workAreaSize.width;
+    const height = workAreaSize.height;
 
     // Create the browser window.
     App.mainWindow = new BrowserWindow({
       width: width,
       height: height,
       show: false,
+      frame: OS.platform() !== 'win32',
       webPreferences: {
         contextIsolation: true,
         backgroundThrottling: false,
-        preload: join(__dirname, 'preload.js')
-      }
+        preload: join(__dirname, 'preload.js'),
+      },
     });
     App.mainWindow.setMenu(null);
     App.mainWindow.center();
@@ -88,7 +89,6 @@ export default class App {
     //     App.onRedirect(event, url);
     // });
 
-
     // Emitted when the window is closed.
     App.mainWindow.on('closed', () => {
       // Dereference the window object, usually you would store windows
@@ -96,13 +96,10 @@ export default class App {
       // when you should delete the corresponding element.
       App.mainWindow = null;
     });
-
-
   }
 
   private static loadMainWindow() {
     // load the index.html of the app.
-
 
     if (!App.application.isPackaged) {
       App.mainWindow.loadURL(`http://localhost:${rendererAppPort}`);
@@ -114,23 +111,16 @@ export default class App {
       //     slashes: true
       //   })
       // );
-      const url = new URL(`file:${join(__dirname, '..', rendererAppName, 'index.html')}`)
-      App.mainWindow.loadURL(
-
-        format(url, { fragment: false, unicode: true, auth: false })
-      );
+      const url = new URL(`file:${join(__dirname, '..', rendererAppName, 'index.html')}`);
+      App.mainWindow.loadURL(format(url, { fragment: false, unicode: true, auth: false }));
     }
   }
 
-
   private static loadDevTools() {
-
-    // doesnt works
-    // installExtension(ANGULAR_DEVTOOLS)
-    //   .then((name) => console.log(`Added Extension:  ${name}`))
-    //   .catch((err) => console.log('An error occurred: ', err));
-
-
+    //
+    installExtension(ANGULAR_DEVTOOLS)
+      .then((name) => console.log(`Added Extension:  ${name}`))
+      .catch((err) => console.log('An error occurred: ', err));
 
     App.mainWindow.webContents.openDevTools();
   }
