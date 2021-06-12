@@ -1,9 +1,8 @@
 import { BrowserWindow, screen, shell } from 'electron';
-import { ANGULAR_DEVTOOLS, rendererAppName, rendererAppPort } from './constants';
+import { rendererAppName, rendererAppPort } from './constants';
 import { environment } from '../environments/environment';
 import { join } from 'path';
 import { format, URL } from 'url';
-import installExtension from 'electron-devtools-installer';
 import * as OS from 'os';
 
 export default class App {
@@ -60,8 +59,8 @@ export default class App {
 
   private static initMainWindow() {
     const workAreaSize = screen.getPrimaryDisplay().workAreaSize;
-    const width = workAreaSize.width;
-    const height = workAreaSize.height;
+    const width = workAreaSize.width - 100;
+    const height = workAreaSize.height - 50;
 
     // Create the browser window.
     App.mainWindow = new BrowserWindow({
@@ -70,7 +69,6 @@ export default class App {
       show: false,
       frame: OS.platform() !== 'win32',
       webPreferences: {
-        contextIsolation: true,
         backgroundThrottling: false,
         preload: join(__dirname, 'preload.js'),
       },
@@ -118,9 +116,9 @@ export default class App {
 
   private static loadDevTools() {
     //
-    installExtension(ANGULAR_DEVTOOLS)
-      .then((name) => console.log(`Added Extension:  ${name}`))
-      .catch((err) => console.log('An error occurred: ', err));
+    // installExtension(ANGULAR_DEVTOOLS)
+    //   .then((name) => console.log(`Added Extension:  ${name}`))
+    //   .catch((err) => console.log('An error occurred: ', err));
 
     App.mainWindow.webContents.openDevTools();
   }

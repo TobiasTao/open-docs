@@ -37,6 +37,18 @@
     },
     "web-shell-ui-layout": {
       "tags": []
+    },
+    "web-shell-ui-title-bar": {
+      "tags": ["ui"]
+    },
+    "web-shared-ui-svg": {
+      "tags": ["ui"]
+    },
+    "web-core-core": {
+      "tags": []
+    },
+    "web-core": {
+      "tags": []
     }
   }
 }

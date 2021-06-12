@@ -36,7 +36,7 @@
       "projectType": "application",
       "root": "apps/open-docs",
       "sourceRoot": "apps/open-docs/src",
-      "prefix": "open-docs",
+      "prefix": "od",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -215,7 +215,7 @@
       "projectType": "library",
       "root": "libs/web/shell/feature",
       "sourceRoot": "libs/web/shell/feature/src",
-      "prefix": "open-docs",
+      "prefix": "od",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -237,7 +237,7 @@
       "projectType": "library",
       "root": "libs/web/home/feature",
       "sourceRoot": "libs/web/home/feature/src",
-      "prefix": "open-docs",
+      "prefix": "od",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -259,7 +259,7 @@
       "projectType": "library",
       "root": "libs/web/shell/ui/layout",
       "sourceRoot": "libs/web/shell/ui/layout/src",
-      "prefix": "app",
+      "prefix": "od",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -273,6 +273,94 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/web/shell/ui/layout/src/**/*.ts", "libs/web/shell/ui/layout/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "web-shell-ui-title-bar": {
+      "projectType": "library",
+      "root": "libs/web/shell/ui/title-bar",
+      "sourceRoot": "libs/web/shell/ui/title-bar/src",
+      "prefix": "od",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shell/ui/title-bar"],
+          "options": {
+            "jestConfig": "libs/web/shell/ui/title-bar/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shell/ui/title-bar/src/**/*.ts", "libs/web/shell/ui/title-bar/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "web-shared-ui-svg": {
+      "projectType": "library",
+      "root": "libs/web/shared/ui/svg",
+      "sourceRoot": "libs/web/shared/ui/svg/src",
+      "prefix": "od",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/svg"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/svg/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/ui/svg/src/**/*.ts", "libs/web/shared/ui/svg/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "web-core-core": {
+      "projectType": "library",
+      "root": "libs/web/core/core",
+      "sourceRoot": "libs/web/core/core/src",
+      "prefix": "od",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/core/core"],
+          "options": {
+            "jestConfig": "libs/web/core/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/core/core/src/**/*.ts", "libs/web/core/core/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "web-core": {
+      "projectType": "library",
+      "root": "libs/web/core",
+      "sourceRoot": "libs/web/core/src",
+      "prefix": "od",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/core"],
+          "options": {
+            "jestConfig": "libs/web/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/core/src/**/*.ts", "libs/web/core/src/**/*.html"]
           }
         }
       }

@@ -17,7 +17,11 @@
     "paths": {
       "@open-docs/web/shell/feature": ["libs/web/shell/feature/src/index.ts"],
       "@open-docs/web/home/feature": ["libs/web/home/feature/src/index.ts"],
-      "@open-docs/web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"]
+      "@open-docs/web/shell/ui/layout": ["libs/web/shell/ui/layout/src/index.ts"],
+      "@open-docs/web/shell/ui/title-bar": ["libs/web/shell/ui/title-bar/src/index.ts"],
+      "@open-docs/web/shared/ui/svg": ["libs/web/shared/ui/svg/src/index.ts"],
+      "@open-docs/web/core/core": ["libs/web/core/core/src/index.ts"],
+      "@open-docs/web/core": ["libs/web/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

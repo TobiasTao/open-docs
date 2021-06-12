@@ -3,8 +3,9 @@
  * between the frontend to the electron backend.
  */
 
-import { app, ipcMain } from 'electron';
+import { ipcMain } from 'electron';
 import { environment } from '../../environments/environment';
+import App from '../app';
 
 export default class ElectronEvents {
   static bootstrapElectronEvents(): Electron.IpcMain {
@@ -20,6 +21,18 @@ ipcMain.handle('get-app-version', (event) => {
 });
 
 // Handle App termination
-ipcMain.on('quit', (event, code) => {
-  app.exit(code);
+ipcMain.on('close', (event, code) => {
+  App.mainWindow.close();
+});
+
+ipcMain.on('minimize', (event, code) => {
+  App.mainWindow.minimize();
+});
+
+ipcMain.on('maximize', (event, code) => {
+  App.mainWindow.maximize();
+});
+
+ipcMain.on('unmaximize', (event, code) => {
+  App.mainWindow.unmaximize();
 });

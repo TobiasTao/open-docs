@@ -16,7 +16,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "openDocs",
+            "prefix": "od",
             "style": "camelCase"
           }
         ],
@@ -24,7 +24,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "open-docs",
+            "prefix": "od",
             "style": "kebab-case"
           }
         ]

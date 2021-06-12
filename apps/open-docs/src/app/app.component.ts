@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ElectronService } from './core/services/electron.service';
 import { Router } from '@angular/router';
+import { ElectronService } from '@open-docs/web/core';
 
 @Component({
-  selector: 'open-docs-root',
+  selector: 'od-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

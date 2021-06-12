@@ -7,5 +7,8 @@ module.exports = {
     '<rootDir>/libs/web/shell/feature',
     '<rootDir>/libs/web/home/feature',
     '<rootDir>/libs/web/shell/ui/layout',
+    '<rootDir>/libs/web/shell/ui/title-bar',
+    '<rootDir>/libs/web/shared/ui/svg',
+    '<rootDir>/libs/web/core/core',
   ],
 };
