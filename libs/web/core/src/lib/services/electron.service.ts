@@ -17,8 +17,7 @@ export class ElectronService {
     if (this.isElectron) {
       this.platform = window.electron.platform;
       // https://stackoverflow.com/questions/52772556/angular-6-cannot-resolve-fs-and-path-for-using-electron/57197537#57197537
-      this.ipc = (window as any).electron.ipc;
-      console.log(this.ipc);
+      this.ipc = window.electron.ipc;
     }
   }
 }
