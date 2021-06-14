@@ -7,20 +7,33 @@ import { ElectronService } from '@open-docs/web/core';
   styleUrls: ['./title-bar.component.scss'],
 })
 export class TitleBarComponent {
+  isFullscreen = false;
+
   constructor(private electronService: ElectronService) {}
+
+  onInit() {
+    this.getFullscreen();
+  }
+
+  getFullscreen() {
+    this.electronService.ipc.invoke('isFullscreen').then((result) => {
+      this.isFullscreen = result;
+    });
+  }
 
   minimize() {
     console.log('minimize');
     this.electronService.ipc.send('minimize');
-    // this.electronService.send('minimize');
   }
 
   maximize() {
     this.electronService.ipc.send('maximize');
+    this.isFullscreen = !this.isFullscreen;
   }
 
   unmaximize() {
     this.electronService.ipc.send('unmaximize');
+    this.isFullscreen = !this.isFullscreen;
   }
 
   close() {

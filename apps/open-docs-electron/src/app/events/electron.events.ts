@@ -36,3 +36,7 @@ ipcMain.on('maximize', (event, code) => {
 ipcMain.on('unmaximize', (event, code) => {
   App.mainWindow.unmaximize();
 });
+
+ipcMain.on('isFullScreen', (event, code) => {
+  App.mainWindow.isFullScreen();
+});

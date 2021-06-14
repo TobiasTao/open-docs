@@ -48,7 +48,7 @@
             "tsConfig": "apps/open-docs/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["apps/open-docs/src/favicon.ico", "apps/open-docs/src/assets"],
-            "styles": ["apps/open-docs/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/open-docs/src/styles.scss"],
             "scripts": []
           },
           "configurations": {

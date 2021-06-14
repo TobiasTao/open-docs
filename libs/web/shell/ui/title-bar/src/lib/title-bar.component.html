@@ -1,16 +1,18 @@
-<button (click)='minimize()'>
-<svg-icon key="window-control-minimize"></svg-icon>
-</button>
-<button (click)='maximize()'>
-
-<svg-icon key="window-control-maximize"></svg-icon>
-</button>
-<button (click)='unmaximize()'>
-<svg-icon key="window-control-unmaximize"></svg-icon>
-</button>
-
-
-
-<button (click)='close()'>
-<svg-icon key="window-control-close"></svg-icon>
-</button>
+<div fxLayout='row' fxLayoutAlign='space-between'>
+  <div class='title-bar-icon' fxFlexAlign='center'>Open Docs</div>
+  <div class='title-bar-space' fxFlexAlign='center'>hello world</div>
+  <div class='window-control-buttons' fxFlexAlign='center'>
+    <button mat-button disableRipple='true' (click)='minimize()'>
+      <svg-icon key='window-control-minimize' [fontSize]="'20px'"></svg-icon>
+    </button>
+    <button mat-button disableRipple='true' (click)='maximize()' *ngIf='!isFullscreen'>
+      <svg-icon key='window-control-maximize' [fontSize]="'20px'"></svg-icon>
+    </button>
+    <button mat-button disableRipple='true' (click)='unmaximize()' *ngIf='isFullscreen'>
+      <svg-icon key='window-control-unmaximize' [fontSize]="'20px'" ></svg-icon>
+    </button>
+    <button mat-button disableRipple='true' (click)='close()'>
+      <svg-icon key='window-control-close' [fontSize]="'20px'"></svg-icon>
+    </button>
+  </div>
+</div>

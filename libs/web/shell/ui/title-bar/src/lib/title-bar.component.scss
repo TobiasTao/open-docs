@@ -1,0 +1,26 @@
+:host {
+  height: 32px;
+
+  .title-bar-icon {
+    width: 100px;
+  }
+
+  .title-bar-space {
+    width: calc(100% - 238px);
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+  }
+
+  .window-control-buttons{
+    width: 138px;
+
+    ::ng-deep{
+      .mat-button {
+        min-width: 46px !important;
+        line-height: 28px !important;
+        padding: 0 !important;
+        border-radius: 1px;
+      }
+    }
+  }
+}

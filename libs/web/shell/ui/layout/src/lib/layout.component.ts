@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ElectronService } from '@open-docs/web/core';
 
 @Component({
@@ -6,12 +6,10 @@ import { ElectronService } from '@open-docs/web/core';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
   isElectron = false;
 
   constructor(ele: ElectronService) {
     this.isElectron = ele.isElectron;
   }
-
-  ngOnInit(): void {}
 }
